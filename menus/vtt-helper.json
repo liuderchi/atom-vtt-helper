@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle vtt-helper",
+        "command": "vtt-helper:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "vtt-helper",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "vtt-helper:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
