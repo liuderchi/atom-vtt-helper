@@ -2,13 +2,17 @@
   "name": "vtt-helper",
   "main": "./lib/vtt-helper",
   "version": "0.0.0",
-  "description": "A short description of your package",
+  "description": "simple vtt subtitle tools",
   "keywords": [
+    "vtt",
+    "subtitle",
+    "webvtt",
+    "text-manipulate"
   ],
   "activationCommands": {
     "atom-workspace": "vtt-helper:toggle"
   },
-  "repository": "https://github.com/atom/vtt-helper",
+  "repository": "https://github.com/liuderchi/atom-vtt-helper",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
