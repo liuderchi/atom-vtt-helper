@@ -6,13 +6,11 @@ A simple vtt subtitle tools.
 
 ## Features
 
-- TBD
+- Jump To Frame by Number
 
 ## TODO
 
-
-- jump to frame
-- jump by timestamp
+- Jump To Timestamp
 - time shift all frames
 - insert `NOTE` to all frames / one frame
 
