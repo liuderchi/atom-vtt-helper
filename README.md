@@ -10,9 +10,8 @@ A simple vtt subtitle tools.
 
 ## TODO
 
-
-- jump to frame
-- jump by timestamp
+- Jump To Frame by Number
+- Jump To Timestamp
 - time shift all frames
 - insert `NOTE` to all frames / one frame
 

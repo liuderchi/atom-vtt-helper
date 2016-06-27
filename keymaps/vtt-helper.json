@@ -1,5 +1,6 @@
 {
   "atom-workspace": {
-    "ctrl-alt-o": "vtt-helper:toggle"
+    "ctrl-alt-o": "vtt-helper:toggle",
+    "ctrl-alt-j": "vtt-helper:Jump To Frame By Number"
   }
 }
