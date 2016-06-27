@@ -1,7 +1,7 @@
 {
   "name": "vtt-helper",
   "main": "./lib/vtt-helper",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "simple vtt subtitle tools",
   "keywords": [
     "vtt",
