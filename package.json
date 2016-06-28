@@ -10,7 +10,7 @@
     "text-manipulate"
   ],
   "activationCommands": {
-    "atom-workspace": "vtt-helper:toggle"
+    "atom-workspace": "vtt-helper:jump-to-frame-by-number"
   },
   "repository": "https://github.com/liuderchi/atom-vtt-helper",
   "license": "MIT",
