@@ -1,10 +1,8 @@
 {$, TextEditorView, View } = require 'atom-space-pen-views'
 
 module.exports =
-class jumpToFrameView extends View
-  onConfrimCb: null,
+class JumpToFrameView extends View
   modalPanel: null,  # NOTE from atom.workspace.addModalPanel()
-  editor: null,  # NOTE from atom.workspace.getActiveTextEditor()
 
   @content: ->
     @div class: 'package-generator', =>
@@ -19,7 +17,7 @@ class jumpToFrameView extends View
       'core:cancel': => @close()
 
   destroy: ->
-    console.log 'jumpToFrameView destroying'
+    console.log 'JumpToFrameView destroying'
 
   toggle: ->
     if @modalPanel.isVisible()
@@ -32,9 +30,13 @@ class jumpToFrameView extends View
 
   confirm: ->
     frameNum = parseInt(@miniEditor.getText())
-    if isNaN frameNum then @error.text('Invalid input'); return
+    return @error.text('Invalid input') if isNaN frameNum
     @close()
-    if (@onConfrimCb != null) then @onConfrimCb(frameNum) else console.warn '[vtt-helper] onConfrimCb is null'
+    return unless editor = atom.workspace.getActiveTextEditor()
+    re = new RegExp("^" + frameNum + "\r?\n", "g")
+    editor.scan re, (matchObj) ->
+      editor.setCursorBufferPosition matchObj.range.start
+      editor.scrollToBufferPosition matchObj.range.start, {center: true}
 
   close: ->
     miniEditorFocused = @miniEditor.hasFocus()
