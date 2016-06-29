@@ -1,10 +1,11 @@
 JumpToFrameView = require './jump-to-frame-view'  # NOTE no curly brackets
 
+module.exports =
 class JumpToFrame
   jumpToFrameView: null
 
   deactivate: ->
-    this.jumpToFrameView.destroy()
+    @jumpToFrameView.destroy()
 
   jumpToFrameNum: ->
     return unless editor = atom.workspace.getActiveTextEditor()
@@ -13,13 +14,11 @@ class JumpToFrame
       return console.warn('[vtt-helper] NOT VALID VTT CONTENT')
 
     #  NOTE init view/panel
-    if (this.jumpToFrameView == null)
-      this.jumpToFrameView = new JumpToFrameView()
-      this.jumpToFrameView.modalPanel = atom.workspace.addModalPanel({
-        item: this.jumpToFrameView,
+    if (@jumpToFrameView == null)
+      @jumpToFrameView = new JumpToFrameView()
+      @jumpToFrameView.modalPanel = atom.workspace.addModalPanel({
+        item: @jumpToFrameView,
         visible: false
       })
 
-    this.jumpToFrameView.toggle()
-
-module.exports = JumpToFrame
+    @jumpToFrameView.toggle()
