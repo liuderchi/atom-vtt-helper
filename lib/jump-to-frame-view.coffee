@@ -1,7 +1,7 @@
 {$, TextEditorView, View } = require 'atom-space-pen-views'
 
 module.exports =
-class jumpToFrameView extends View
+class JumpToFrameView extends View
   modalPanel: null,  # NOTE from atom.workspace.addModalPanel()
 
   @content: ->
@@ -17,7 +17,7 @@ class jumpToFrameView extends View
       'core:cancel': => @close()
 
   destroy: ->
-    console.log 'jumpToFrameView destroying'
+    console.log 'JumpToFrameView destroying'
 
   toggle: ->
     if @modalPanel.isVisible()
