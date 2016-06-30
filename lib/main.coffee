@@ -12,7 +12,7 @@ class Main
       atom.commands.add(
         'atom-workspace',
         'vtt-helper:jump-to-frame-by-number',
-        () =>  @jumpToFrame.jumpToFrameNum()
+        () => @jumpToFrame.toggleView()
       )
     )
 

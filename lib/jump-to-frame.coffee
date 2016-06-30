@@ -1,14 +1,13 @@
 {$, TextEditorView, View } = require 'atom-space-pen-views'
 
 
-module.exports =
 class JumpToFrame
   jumpToFrameView: null
 
   deactivate: ->
     @jumpToFrameView.destroy()
 
-  jumpToFrameNum: ->
+  toggleView: ->
     return unless editor = atom.workspace.getActiveTextEditor()
 
     if (editor.getText().slice(0,6) != 'WEBVTT')
@@ -16,7 +15,7 @@ class JumpToFrame
 
     #  NOTE init view/panel
     if (@jumpToFrameView == null)
-      @jumpToFrameView = new JumpToFrameView()
+      @jumpToFrameView = new JumpToFrameView()    # call initialize()
       @jumpToFrameView.modalPanel = atom.workspace.addModalPanel({
         item: @jumpToFrameView,
         visible: false
@@ -77,3 +76,6 @@ class JumpToFrameView extends View
       @previouslyFocusedElement.focus()
     else
       atom.views.getView(atom.workspace).focus()
+
+
+module.exports = JumpToFrame
