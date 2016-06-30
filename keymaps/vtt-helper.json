@@ -1,5 +1,7 @@
 {
   "atom-workspace": {
-    "ctrl-alt-j": "vtt-helper:jump-to-frame-by-number"
+    "ctrl-alt-j": "vtt-helper:jump-to-frame-by-number",
+    "ctrl-{": "vtt-helper:jump-to-previous-frame",
+    "ctrl-}": "vtt-helper:jump-to-next-frame"
   }
 }
