@@ -7,6 +7,7 @@ A simple vtt subtitle tools.
 ## Features
 
 - Jump To Frame by Number
+- Jump To Next/Previous Frame
 
 ## TODO
 

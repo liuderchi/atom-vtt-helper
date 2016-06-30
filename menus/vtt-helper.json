@@ -2,8 +2,21 @@
   "context-menu": {
     "atom-text-editor": [
       {
-        "label": "Jump To Frame By Number",
-        "command": "vtt-helper:jump-to-frame-by-number"
+        "label": "vtt-helper",
+        "submenu": [
+          {
+            "label": "Jump To Next Frame",
+            "command": "vtt-helper:jump-to-next-frame"
+          },
+          {
+            "label": "Jump To Previous Frame",
+            "command": "vtt-helper:jump-to-previous-frame"
+          },
+          {
+            "label": "Jump To Frame By Number",
+            "command": "vtt-helper:jump-to-frame-by-number"
+          }
+        ]
       }
     ]
   },
@@ -14,6 +27,14 @@
         {
           "label": "vtt-helper",
           "submenu": [
+            {
+              "label": "Jump To Next Frame",
+              "command": "vtt-helper:jump-to-next-frame"
+            },
+            {
+              "label": "Jump To Previous Frame",
+              "command": "vtt-helper:jump-to-previous-frame"
+            },
             {
               "label": "Jump To Frame By Number",
               "command": "vtt-helper:jump-to-frame-by-number"
