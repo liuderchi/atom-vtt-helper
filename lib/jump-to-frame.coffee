@@ -25,10 +25,10 @@ class JumpToFrame
     return unless editor = atom.workspace.getActiveTextEditor()
     return console.warn('[vtt-helper] NOT VALID VTT CONTENT') if (editor.getText().slice(0,6) != 'WEBVTT')
 
-    re = new RegExp(/^(\d)+$/g)
+    re = new RegExp(/-->/g)
     cursor = editor.getCursorBufferPosition()
     _focusToMatchObj = (matchObj) ->
-      editor.setCursorBufferPosition matchObj.range.start
+      editor.setCursorBufferPosition [matchObj.range.start.row, 0]
       editor.scrollToBufferPosition matchObj.range.start, {center: true}
 
     if backward
