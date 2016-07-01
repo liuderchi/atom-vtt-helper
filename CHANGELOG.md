@@ -13,3 +13,8 @@
 ## 0.1.0 - Jump to Frame
 * jump to frame by number
 * jump to next/previous frame
+
+## 0.1.1 - Use Standard terms and Fix jump-to behavior
+* rename `frame` to `cue`
+* rename `timestamp` to `timing`
+* jump to cue timing rather than cue id

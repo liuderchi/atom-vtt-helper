@@ -5,16 +5,16 @@
         "label": "vtt-helper",
         "submenu": [
           {
-            "label": "Jump To Next Frame",
-            "command": "vtt-helper:jump-to-next-frame"
+            "label": "Jump To Next Cue",
+            "command": "vtt-helper:jump-to-next-cue"
           },
           {
-            "label": "Jump To Previous Frame",
-            "command": "vtt-helper:jump-to-previous-frame"
+            "label": "Jump To Previous Cue",
+            "command": "vtt-helper:jump-to-previous-cue"
           },
           {
-            "label": "Jump To Frame By Number",
-            "command": "vtt-helper:jump-to-frame-by-number"
+            "label": "Jump To Cue By Number",
+            "command": "vtt-helper:jump-to-cue-by-number"
           }
         ]
       }
@@ -28,16 +28,16 @@
           "label": "vtt-helper",
           "submenu": [
             {
-              "label": "Jump To Next Frame",
-              "command": "vtt-helper:jump-to-next-frame"
+              "label": "Jump To Next Cue",
+              "command": "vtt-helper:jump-to-next-cue"
             },
             {
-              "label": "Jump To Previous Frame",
-              "command": "vtt-helper:jump-to-previous-frame"
+              "label": "Jump To Previous Cue",
+              "command": "vtt-helper:jump-to-previous-cue"
             },
             {
-              "label": "Jump To Frame By Number",
-              "command": "vtt-helper:jump-to-frame-by-number"
+              "label": "Jump To Cue By Number",
+              "command": "vtt-helper:jump-to-cue-by-number"
             }
           ]
         }
