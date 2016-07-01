@@ -6,23 +6,23 @@ A simple vtt subtitle tools.
 
 ## Features
 
-- Jump To Frame by Number
-- Jump To Next/Previous Frame
+- Jump To Cue by Number
+- Jump To Next/Previous Cue
 
 ## TODO
 
-- Jump To Timestamp
-- time shift all frames
-- insert `NOTE` to all frames / one frame
+- Jump To cue timing
+- time shift all cue timings
+- insert `NOTE` to all cues / one cue
 
 - parse from `srt`
 - vtt 2 srt conversion (opt)
 
 - format/validate webvtt
 
-- use ui to adjust timestamp
+- use ui to adjust timing
 
-- timeline ui to visualize frame
+- timeline ui to visualize cue
 - video preview with vtt
 - existed vtt parser implant
 

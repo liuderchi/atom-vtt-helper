@@ -1,31 +1,31 @@
 { CompositeDisposable } = require 'atom'
-JumpToFrame = require './jump-to-frame'
+JumpToCue = require './jump-to-cue'
 
 module.exports =
 class Main
   @subscriptions: null
 
   @activate: (state) ->
-    @jumpToFrame = new JumpToFrame()
+    @jumpToCue = new JumpToCue()
     @subscriptions = new CompositeDisposable()
     @subscriptions.add(
       atom.commands.add(
         'atom-workspace',
-        'vtt-helper:jump-to-frame-by-number',
-        () => @jumpToFrame.toggleView()
+        'vtt-helper:jump-to-cue-by-number',
+        () => @jumpToCue.toggleView()
       ),
       atom.commands.add(
         'atom-workspace',
-        'vtt-helper:jump-to-next-frame',
-        () => @jumpToFrame.jumpToNearFrame()
+        'vtt-helper:jump-to-next-cue',
+        () => @jumpToCue.jumpToNearCue()
       ),
       atom.commands.add(
         'atom-workspace',
-        'vtt-helper:jump-to-previous-frame',
-        () => @jumpToFrame.jumpToNearFrame(backward=true)
+        'vtt-helper:jump-to-previous-cue',
+        () => @jumpToCue.jumpToNearCue(backward=true)
       )
     )
 
   @deactivate: ->
     @subscriptions.dispose()
-    @jumpToFrame.deactivate()
+    @jumpToCue.deactivate()

@@ -1,27 +1,27 @@
 {$, TextEditorView, View } = require 'atom-space-pen-views'
 
 
-class JumpToFrame
-  jumpToFrameView: null
+class JumpToCue
+  jumpToCueView: null
 
   deactivate: ->
-    @jumpToFrameView.destroy()
+    @jumpToCueView.destroy()
 
   toggleView: ->
     return unless editor = atom.workspace.getActiveTextEditor()
     return console.warn('[vtt-helper] NOT VALID VTT CONTENT') if (editor.getText().slice(0,6) != 'WEBVTT')
 
     #  NOTE init view/panel
-    if (@jumpToFrameView == null)
-      @jumpToFrameView = new JumpToFrameView()    # call initialize()
-      @jumpToFrameView.modalPanel = atom.workspace.addModalPanel({
-        item: @jumpToFrameView,
+    if (@jumpToCueView == null)
+      @jumpToCueView = new JumpToCueView()    # call initialize()
+      @jumpToCueView.modalPanel = atom.workspace.addModalPanel({
+        item: @jumpToCueView,
         visible: false
       })
 
-    @jumpToFrameView.toggle()
+    @jumpToCueView.toggle()
 
-  jumpToNearFrame: (backward=false) ->
+  jumpToNearCue: (backward=false) ->
     return unless editor = atom.workspace.getActiveTextEditor()
     return console.warn('[vtt-helper] NOT VALID VTT CONTENT') if (editor.getText().slice(0,6) != 'WEBVTT')
 
@@ -37,12 +37,12 @@ class JumpToFrame
       editor.backwardsScanInBufferRange re, [[cursor.row+1, 0], [cursor.row+20, 0]], _focusToMatchObj
 
 
-class JumpToFrameView extends View
+class JumpToCueView extends View
   modalPanel: null,  # NOTE from atom.workspace.addModalPanel()
 
   @content: ->
     @div class: 'package-generator', =>
-      @subview 'miniEditor', new TextEditorView(mini: true, placeholderText: 'Enter frame number')
+      @subview 'miniEditor', new TextEditorView(mini: true, placeholderText: 'Enter cue number')
       @div class: 'error', outlet: 'error'
       @div class: 'message', outlet: 'message'
 
@@ -53,23 +53,23 @@ class JumpToFrameView extends View
       'core:cancel': => @close()
 
   destroy: ->
-    console.log 'JumpToFrameView destroying'
+    console.log 'JumpToCueView destroying'
 
   toggle: ->
     if @modalPanel.isVisible()
       @modalPanel.hide()  # trigger blur
     else
       @storeFocusedElement()
-      @message.text("Enter frame number to jump to")
+      @message.text("Enter cue number to jump to")
       @modalPanel.show()
       @miniEditor.focus()
 
   confirm: ->
-    frameNum = parseInt(@miniEditor.getText())
-    return @error.text('Invalid input') if isNaN frameNum
+    cueNum = parseInt(@miniEditor.getText())
+    return @error.text('Invalid input') if isNaN cueNum
     @close()
     return unless editor = atom.workspace.getActiveTextEditor()
-    re = new RegExp("^" + frameNum + "\r?\n", "g")
+    re = new RegExp("^" + cueNum + "\r?\n", "g")
     editor.scan re, (matchObj) ->
       editor.setCursorBufferPosition matchObj.range.start
       editor.scrollToBufferPosition matchObj.range.start, {center: true}
@@ -91,4 +91,4 @@ class JumpToFrameView extends View
       atom.views.getView(atom.workspace).focus()
 
 
-module.exports = JumpToFrame
+module.exports = JumpToCue
