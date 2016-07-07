@@ -9,7 +9,7 @@ class JumpToCue
 
   toggleView: ->
     return unless editor = atom.workspace.getActiveTextEditor()
-    return console.warn('[vtt-helper] NOT VALID VTT CONTENT') if (editor.getText().slice(0,6) != 'WEBVTT')
+    return atom.notifications.addInfo('Invalid vtt content') if (editor.getText().slice(0,6) != 'WEBVTT')
 
     #  NOTE init view/panel
     if (@jumpToCueView == null)
@@ -23,7 +23,7 @@ class JumpToCue
 
   jumpToNearCue: (backward=false) ->
     return unless editor = atom.workspace.getActiveTextEditor()
-    return console.warn('[vtt-helper] NOT VALID VTT CONTENT') if (editor.getText().slice(0,6) != 'WEBVTT')
+    return atom.notifications.addInfo('Invalid vtt content') if (editor.getText().slice(0,6) != 'WEBVTT')
 
     re = new RegExp(/-->/g)
     cursor = editor.getCursorBufferPosition()
