@@ -1,5 +1,6 @@
 { CompositeDisposable } = require 'atom'
 JumpToCue = require './jump-to-cue'
+JumpToNearCue = require './jump-to-near-cue'
 
 module.exports =
 class Main
@@ -17,12 +18,12 @@ class Main
       atom.commands.add(
         'atom-workspace',
         'vtt-helper:jump-to-next-cue',
-        () => @jumpToCue.jumpToNearCue()
+        () => new JumpToNearCue().jumpToNearCue()
       ),
       atom.commands.add(
         'atom-workspace',
         'vtt-helper:jump-to-previous-cue',
-        () => @jumpToCue.jumpToNearCue(backward=true)
+        () => new JumpToNearCue().jumpToNearCue(backward=true)
       )
     )
 
